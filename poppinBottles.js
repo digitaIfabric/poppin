@@ -34,12 +34,11 @@ function calcBottles(INV) {
     console.log("TOTAL BOTTLES: " + minBottles);
     console.log("REMAINING BOTTLES: " + empties);
     console.log("REMAINING CAPS: " + caps);
-    // console.log("TOTAL EARNED:");
-    // console.log("BOTTLES: " + caps);
-    // console.log("CAPS: " + caps);
-
+    console.log("TOTAL EARNED:");
+    console.log("BOTTLES: " + Math.floor(minBottles / 2));
+    console.log("CAPS: " + Math.floor(minBottles / 4));
 
     return minBottles;
 }
 
-calcBottles(40);
+calcBottles(30);
