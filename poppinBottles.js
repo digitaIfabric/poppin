@@ -3,6 +3,8 @@
 // For every four bottle caps, you can get one free (full) bottle of pop
 // Each bottle of pop costs $2 to purchase
 
+var INV = process.argv[2];
+
 function calcBottles(INV) {
     var minBottles = Math.floor(INV / 2);
     var currentBottles = minBottles;
@@ -35,4 +37,4 @@ function calcBottles(INV) {
     return minBottles;
 }
 
-calcBottles(30);
+calcBottles(INV);
