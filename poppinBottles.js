@@ -1,9 +1,3 @@
-// INV TOT
-// 10	15
-// 20	35
-// 30	55
-// 40	75
-
 // Conditions
 // two empty bottles, you can get one free (full) bottle of pop
 // For every four bottle caps, you can get one free (full) bottle of pop
