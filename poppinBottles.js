@@ -4,29 +4,42 @@
 // 30	55
 // 40	75
 
+// Conditions
 // two empty bottles, you can get one free (full) bottle of pop
 // For every four bottle caps, you can get one free (full) bottle of pop
 // Each bottle of pop costs $2 to purchase
-var INV = 10;
-var caps = [];
-var bottles = [];
 
 function calcBottles(INV) {
     var minBottles = Math.floor(INV / 2);
-    var caps = minBottles;
-    var bottles = minBottles;
-    var redemptionB = Math.floor(bottles / 2);
-    var redemptionC = Math.floor(caps / 4);
-    var redemption =  redemptionB + redemptionC;
-    var left = minBottles - redemption;
+    var currentBottles = minBottles;
+    var empties = 0;
+    var caps = 0;
 
-    console.log("Bottles redeemed: " + redemption);
-    console.log("Bottles left for r: " + left);
-    // Trade in one
+    while(true) {
+        if (currentBottles > 0) {
+            empties += currentBottles;
+            caps += currentBottles;
+            currentBottles = 0;
+        } else {
+            currentBottles = Math.floor(empties / 2) + Math.floor(caps / 4);
+            empties = Math.floor(empties % 2);
+            caps = Math.floor(caps % 4);
+        }
+
+        minBottles += currentBottles;
+
+        if (currentBottles == 0 && (currentBottles + empties) < 2 && (currentBottles + caps) < 4) break;
+    }
+
+    console.log("TOTAL BOTTLES: " + minBottles);
+    console.log("REMAINING BOTTLES: " + empties);
+    console.log("REMAINING CAPS: " + caps);
+    // console.log("TOTAL EARNED:");
+    // console.log("BOTTLES: " + caps);
+    // console.log("CAPS: " + caps);
+
 
     return minBottles;
-
 }
 
-
-console.log(calcBottles(INV));
+calcBottles(40);
